@@ -1,4 +1,10 @@
 RailsCrm2::Application.routes.draw do
+  resources :actions
+
+  resources :agents
+
+  resources :customers
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

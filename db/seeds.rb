@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+#
+
+Agent.create(:name => 'agent one', :email => 'a.one@example.com')
+Customer.create(:name => 'customer one', :email => 'c.one@example.com')

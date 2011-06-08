@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @action.customer_id %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @action.state %>
+</p>
+
+<p>
+  <b>Agent:</b>
+  <%= @action.agent_id %>
+</p>
+
+<p>
+  <b>Schedule:</b>
+  <%= @action.schedule %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @action.parent %>
+</p>
+
+
+<%= link_to 'Edit', edit_action_path(@action) %> |
+<%= link_to 'Back', actions_path %>
