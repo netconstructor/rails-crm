@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608232427) do
+ActiveRecord::Schema.define(:version => 20110609002441) do
 
   create_table "actions", :force => true do |t|
     t.integer  "customer_id"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(:version => 20110608232427) do
     t.datetime "updated_at"
   end
 
+  add_index "actions", ["agent_id"], :name => "index_actions_on_agent_id"
+  add_index "actions", ["customer_id"], :name => "index_actions_on_customer_id"
+
   create_table "agents", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -29,9 +32,29 @@ ActiveRecord::Schema.define(:version => 20110608232427) do
     t.datetime "updated_at"
   end
 
+  create_table "bananas", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "state"
+    t.integer  "agent_id"
+    t.datetime "schedule"
+    t.integer  "parent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "customers", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "state"
+    t.integer  "agent_id"
+    t.datetime "schedule"
+    t.integer  "parent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 RailsCrm2::Application.routes.draw do
+  resources :events
+
   resources :agents
 
   resources :customers
