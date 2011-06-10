@@ -1,4 +1,6 @@
 RailsCrm2::Application.routes.draw do
+  get "dashboard/index"
+
   resources :events
 
   resources :agents
@@ -7,6 +9,8 @@ RailsCrm2::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+  match 'dashboard' => 'dashboard#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

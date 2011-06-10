@@ -1,0 +1,7 @@
+<h1>Dashboard#index</h1>
+
+<ul>
+<% @events.each do |e| %>
+  <li><%= link_to e.id, edit_event_path(e) %> <%= e.customer.name %> <%= e.agent_id %>
+<% end %>
+</ul>
