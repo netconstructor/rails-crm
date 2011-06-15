@@ -1,0 +1,14 @@
+<% if list.empty? %>
+  <em>No events to display.</em>
+<% else %>
+  <table>
+    <th>EventID</th><th>Customer</th><th>Agent</th>
+    <% list.each do |e| %>
+      <tr>
+        <td><%= link_to e.id, edit_event_path(e) %></td>
+        <td><%= e.customer.name %></td>
+        <td><%= e.agent ? e.agent.name : '' %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

@@ -1,7 +1,9 @@
-<h1>Dashboard#index</h1>
+<h1>Events</h1>
 
-<ul>
-<% @events.each do |e| %>
-  <li><%= link_to e.id, edit_event_path(e) %> <%= e.customer.name %> <%= e.agent_id %>
-<% end %>
-</ul>
+<h2>Assigned to "me"</h2>
+
+<%= render :partial => "event_list", :locals => { :list => @my_events } %>
+
+<h2>Unassigned</h2>
+
+<%= render :partial => "event_list", :locals => { :list => @unassigned_events} %>

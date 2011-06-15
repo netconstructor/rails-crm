@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @events = Event.all
+    @my_events = Event.assigned_to(1)
+    @unassigned_events = Event.unassigned
   end
-
 end
