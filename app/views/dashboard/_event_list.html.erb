@@ -6,8 +6,8 @@
     <% list.each do |e| %>
       <tr>
         <td><%= link_to e.id, edit_event_path(e) %></td>
-        <td><%= e.customer.name %></td>
-        <td><%= e.agent ? e.agent.name : '' %></td>
+        <td><%= e.customer_name %></td>
+        <td><%= e.agent_name %></td>
       </tr>
     <% end %>
   </table>
