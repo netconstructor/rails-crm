@@ -10,23 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110609002441) do
-
-  create_table "actions", :force => true do |t|
-    t.integer  "customer_id"
-    t.string   "state"
-    t.integer  "agent_id"
-    t.datetime "schedule"
-    t.integer  "parent"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110622221540) do
 
   create_table "agents", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hashed_password"
+    t.string   "salt"
   end
 
   create_table "customers", :force => true do |t|
