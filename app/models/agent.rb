@@ -10,16 +10,16 @@ class Agent < ActiveRecord::Base
 
   validate :password_must_be_present
 
-  def Agent.encrypt_password( password, salt )
-    Digest::SHA2.hexdigest(password + "wibble" + salt )
-  end
-
   def Agent.authenticate(name, password)
     if agent = find_by_name(name)
-      if agent.hashed_password = encrypt_password(password, agent.salt)
+      if agent.hashed_password == encrypt_password(password, agent.salt)
         agent
       end
     end
+  end
+
+  def Agent.encrypt_password( password, salt )
+    Digest::SHA2.hexdigest(password + "wibble" + salt )
   end
 
   def password=(password)
