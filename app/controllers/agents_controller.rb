@@ -2,7 +2,7 @@ class AgentsController < ApplicationController
   # GET /agents
   # GET /agents.xml
   def index
-    @agents = Agent.all
+    @agents = Agent.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.save
-        format.html { redirect_to(@agent, :notice => 'Agent was successfully created.') }
+        format.html { redirect_to(agents_url, :notice => "Agent #{@agent.name} was successfully created.") }
         format.xml  { render :xml => @agent, :status => :created, :location => @agent }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.update_attributes(params[:agent])
-        format.html { redirect_to(@agent, :notice => 'Agent was successfully updated.') }
+        format.html { redirect_to(agents_url, :notice => "Agent #{@agent.name} was successfully updated.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

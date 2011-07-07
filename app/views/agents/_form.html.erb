@@ -1,3 +1,5 @@
+<div class="crm_form">
+
 <%= form_for(@agent) do |f| %>
   <% if @agent.errors.any? %>
     <div id="error_explanation">
@@ -11,9 +13,11 @@
     </div>
   <% end %>
 
+<fieldset>
+  <legend>Enter User Details</legend>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 40 %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -30,4 +34,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</fieldset>
 <% end %>
+
+</div>
