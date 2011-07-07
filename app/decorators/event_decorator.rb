@@ -16,7 +16,7 @@ class EventDecorator < RailsDecorators::Base
   end
 
   def customer_name
-    customer.name
+    customer ? customer.name : ''
   end
 
 

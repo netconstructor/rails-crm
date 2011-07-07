@@ -2,6 +2,12 @@ require 'test_helper'
 
 class AgentsControllerTest < ActionController::TestCase
   setup do
+    @input_attributes = {
+			:name										=> "dave",
+			:email									=> "dave@dave.dave",
+			:password								=> "dave",
+			:password_confirmation	=> "dave",
+		}
     @agent = agents(:one)
   end
 
@@ -18,10 +24,10 @@ class AgentsControllerTest < ActionController::TestCase
 
   test "should create agent" do
     assert_difference('Agent.count') do
-      post :create, :agent => @agent.attributes
+      post :create, :agent => @input_attributes
     end
 
-    assert_redirected_to agent_path(assigns(:agent))
+    assert_redirected_to agents_path
   end
 
   test "should show agent" do
@@ -35,8 +41,8 @@ class AgentsControllerTest < ActionController::TestCase
   end
 
   test "should update agent" do
-    put :update, :id => @agent.to_param, :agent => @agent.attributes
-    assert_redirected_to agent_path(assigns(:agent))
+    put :update, :id => @agent.to_param, :agent => @input_attributes
+    assert_redirected_to agents_path
   end
 
   test "should destroy agent" do

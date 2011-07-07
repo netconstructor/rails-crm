@@ -2,6 +2,11 @@ require 'test_helper'
 
 class CustomersControllerTest < ActionController::TestCase
   setup do
+		@input_attributes = {
+			:name		=> "foo",
+			:email	=> "bar@bar.bar"
+		}
+
     @customer = customers(:one)
   end
 
@@ -18,7 +23,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post :create, :customer => @customer.attributes
+      post :create, :customer => @input_attributes
     end
 
     assert_redirected_to customer_path(assigns(:customer))

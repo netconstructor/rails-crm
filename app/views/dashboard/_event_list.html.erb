@@ -5,7 +5,7 @@
     <th>EventID</th><th>Customer</th><th>Agent</th>
     <% list.each do |e| %>
       <tr>
-        <td><%= link_to e.id, edit_event_path(e) %></td>
+        <td><%= link_to e.object_id, edit_event_path(e) %></td>
         <td><%= e.customer_name %></td>
         <td><%= e.agent_name %></td>
       </tr>
